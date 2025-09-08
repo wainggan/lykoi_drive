@@ -6,7 +6,5 @@ edition = "2024"
 [dependencies]
 cgmath = "0.18.0"
 gl = "0.14.0"
-
-[dependencies.lykoi_gl]
-path = "../lykoi_gl"
+lykoi_gl = "0.0.0"
 

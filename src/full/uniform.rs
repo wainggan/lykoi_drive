@@ -12,46 +12,46 @@ pub enum UniformTypes<'a> {
 }
 
 pub trait AsUniformType {
-	fn convert(&self) -> UniformTypes;
+	fn convert(&'_ self) -> UniformTypes<'_>;
 }
 
 impl AsUniformType for () {
-	fn convert(&self) -> UniformTypes {
+	fn convert(&'_ self) -> UniformTypes<'_> {
 		unreachable!()
 	}
 }
 impl AsUniformType for f32 {
-	fn convert(&self) -> UniformTypes {
+	fn convert(&'_ self) -> UniformTypes<'_> {
 		UniformTypes::Float1(*self)
 	}
 }
 impl AsUniformType for [f32; 1] {
-	fn convert(&self) -> UniformTypes {
+	fn convert(&'_ self) -> UniformTypes<'_> {
 		UniformTypes::Float1(self[0])
 	}
 }
 impl AsUniformType for [f32; 2] {
-	fn convert(&self) -> UniformTypes {
+	fn convert(&'_ self) -> UniformTypes<'_> {
 		UniformTypes::Float2(*self)
 	}
 }
 impl AsUniformType for [f32; 3] {
-	fn convert(&self) -> UniformTypes {
+	fn convert(&'_ self) -> UniformTypes<'_> {
 		UniformTypes::Float3(*self)
 	}
 }
 impl AsUniformType for [f32; 4] {
-	fn convert(&self) -> UniformTypes {
+	fn convert(&'_ self) -> UniformTypes<'_> {
 		UniformTypes::Float4(*self)
 	}
 }
 impl AsUniformType for (&Texture, &TextureFormat) {
-	fn convert(&self) -> UniformTypes {
+	fn convert(&'_ self) -> UniformTypes<'_> {
 		UniformTypes::Sampler2D(self.0, self.1)
 	}
 }
 impl AsUniformType for &cgmath::Matrix4<f32> {
-	fn convert(&self) -> UniformTypes {
+	fn convert(&'_ self) -> UniformTypes<'_> {
 		UniformTypes::Mat4x4(self)
 	}
 }
