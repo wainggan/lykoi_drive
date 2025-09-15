@@ -54,19 +54,16 @@ impl Texture {
 		let [object] = lykoi_gl::gen_textures();
 
 		lykoi_gl::bind_texture(lykoi_gl::BindTextureTarget::Texture2D, &object);
-		// safety: width and height are correctly sized because of earlier assert
-		unsafe {
-			lykoi_gl::tex_image_2d(
-				lykoi_gl::TexImage2DTarget::Texture2D,
-				0,
-				lykoi_gl::TexImageInnerFormat::RGBA,
-				width,
-				height,
-				lykoi_gl::TexImageDataFormat::RGBA,
-				lykoi_gl::TexImageDataType::UnsignedByte,
-				Some(data),
-			);
-		}
+		lykoi_gl::tex_image_2d(
+			lykoi_gl::TexImage2DTarget::Texture2D,
+			0,
+			lykoi_gl::TexImageInnerFormat::RGBA,
+			width,
+			height,
+			lykoi_gl::TexImageDataFormat::RGBA,
+			lykoi_gl::TexImageDataType::UnsignedByte,
+			Some(data),
+		);
 		lykoi_gl::unbind_texture(lykoi_gl::BindTextureTarget::Texture2D);
 
 		Self {
@@ -79,19 +76,16 @@ impl Texture {
 		let [object] = lykoi_gl::gen_textures();
 
 		lykoi_gl::bind_texture(lykoi_gl::BindTextureTarget::Texture2D, &object);
-		// safety: data is None
-		unsafe {
-			lykoi_gl::tex_image_2d(
-				lykoi_gl::TexImage2DTarget::Texture2D,
-				0,
-				lykoi_gl::TexImageInnerFormat::RGBA,
-				width,
-				height,
-				lykoi_gl::TexImageDataFormat::RGBA,
-				lykoi_gl::TexImageDataType::UnsignedByte,
-				None,
-			);
-		}
+		lykoi_gl::tex_image_2d(
+			lykoi_gl::TexImage2DTarget::Texture2D,
+			0,
+			lykoi_gl::TexImageInnerFormat::RGBA,
+			width,
+			height,
+			lykoi_gl::TexImageDataFormat::RGBA,
+			lykoi_gl::TexImageDataType::UnsignedByte,
+			None,
+		);
 		lykoi_gl::unbind_texture(lykoi_gl::BindTextureTarget::Texture2D);
 
 		Self {
