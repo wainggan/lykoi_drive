@@ -10,5 +10,5 @@ license = "MIT"
 [dependencies]
 cgmath = "0.18.0"
 gl = "0.14.0"
-lykoi_gl = "0.1.0"
+lykoi_gl = "0.2.0"
 

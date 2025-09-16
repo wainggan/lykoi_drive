@@ -38,11 +38,6 @@ impl<T> ShaderPart<T> {
 		})
 	}
 }
-impl<T> Drop for ShaderPart<T> {
-	fn drop(&mut self) {
-		lykoi_gl::delete_shader(unsafe { std::ptr::read(&self.object) });
-	}
-}
 
 pub struct Shader {
 	object: lykoi_gl::ProgramObject,

@@ -70,9 +70,9 @@ dependencies = [
 
 [[package]]
 name = "lykoi_gl"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d891731aa6f833a8d5f3eb293d07b59e512f42a4f54d51968cd9b165bf9d897a"
+checksum = "f3205f9c7538573e4df049ddd305acc25406fba326c81e09aaad00d100e8e5e2"
 dependencies = [
  "gl",
 ]

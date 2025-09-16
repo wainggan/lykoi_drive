@@ -116,11 +116,6 @@ impl Texture {
 		}
 	}
 }
-impl Drop for Texture {
-	fn drop(&mut self) {
-		lykoi_gl::delete_textures([ unsafe { std::ptr::read(&self.object) } ]);
-	}
-}
 
 #[derive(Debug)]
 pub struct Surface {
@@ -176,12 +171,6 @@ impl Surface {
 	}
 	pub fn height(&self) -> usize {
 		self.size.1
-	}
-}
-impl Drop for Surface {
-	fn drop(&mut self) {
-		lykoi_gl::delete_framebuffers([ unsafe { std::ptr::read(&self.object_framebuffer) } ]);
-		lykoi_gl::delete_renderbuffers([ unsafe { std::ptr::read(&self.object_renderbuffer) } ]);
 	}
 }
 
